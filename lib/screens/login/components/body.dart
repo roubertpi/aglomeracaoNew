@@ -1,7 +1,9 @@
+import 'package:aglomeracao/api/api_service.dart';
 import 'package:aglomeracao/components/RoundedInpuntField.dart';
 import 'package:aglomeracao/components/RoundedPasswordField%20.dart';
 import 'package:aglomeracao/components/rounded_button.dart';
 import 'package:aglomeracao/constants.dart';
+import 'package:aglomeracao/model/login_model.dart';
 import 'package:aglomeracao/screens/signup/signup_screen.dart';
 import 'package:aglomeracao/components/already_have_an_account_acheck.dart';
 import 'package:aglomeracao/screens/welcome/components/background.dart';
@@ -19,6 +21,12 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
+  LoginRequestModel loginRequestModel;
+  @override
+  void initState() {
+    super.initState();
+    loginRequestModel = new LoginRequestModel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +52,10 @@ class _BodyState extends State<Body> {
           ),
           RoundedInpuntField(
             hintText: "Seu Email",
-            onChanged: (value) {},
+            onChanged: (value) => loginRequestModel.email = value,
           ),
           RoundedPasswordField(
-            onChanged: (value) {},
+            onChanged: (value) => loginRequestModel.password = value,
           ),
           RoundedButton(
             text: "Login",
@@ -58,14 +66,24 @@ class _BodyState extends State<Body> {
           SizedBox(height: size.height * 0.03),
           AlreadyHaveAnAccountCheck(
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SignUpScreen();
-                  },
-                ),
-              );
+              ApiService apiService = new ApiService();
+              apiService.login(loginRequestModel).then((value) {
+                if (value != null) {
+                  print('value');
+                  if (value.token.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return SignUpScreen();
+                        },
+                      ),
+                    );
+                  } else {
+                    print('erro');
+                  }
+                }
+              });
             },
           )
         ],
