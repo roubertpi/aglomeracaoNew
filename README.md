@@ -22,3 +22,5 @@ organizar o body e backgroud
 - trocar as cores 
 - Começar integra com Api 
 - Fazer a tela de Balanço 
+- Botão de Denúncia 
+

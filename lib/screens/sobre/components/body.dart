@@ -32,7 +32,9 @@ class Body extends StatelessWidget {
             SizedBox(height:60),
             RoundedButton(
               text: 'Proximo Passo',
-              press: () {},
+              press: () {
+                Navigator.of(context).pushNamed('/login', arguments: {});
+              },
             )
           ],
         ),

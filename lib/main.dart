@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         //falta aqui
       
       routes: {
-        '/' :(ctx)=>LoginScreen(),
+        '/' :(ctx)=>HomePageScreen(),
         '/sobre' :(ctx)=>SobreScreen(),
         '/introducao' :(ctx)=>IntroducaoScreen(),
         '/balanco' :(ctx)=>BalancoScreen(),

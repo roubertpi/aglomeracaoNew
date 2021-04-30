@@ -60,30 +60,26 @@ class _BodyState extends State<Body> {
           RoundedButton(
             text: "Login",
             press: () {
-              Navigator.of(context).pushNamed('/homepage', arguments: {});
-            },
-          ),
-          SizedBox(height: size.height * 0.03),
-          AlreadyHaveAnAccountCheck(
-            press: () {
               ApiService apiService = new ApiService();
               apiService.login(loginRequestModel).then((value) {
                 if (value != null) {
                   print('value');
                   if (value.token.isNotEmpty) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return SignUpScreen();
-                        },
-                      ),
-                    );
+                    Navigator.of(context).pushNamed('/homepage', arguments: {});
                   } else {
                     print('erro');
                   }
                 }
               });
+
+              // Navigator.of(context).pushNamed('/homepage', arguments: {});
+            },
+          ),
+          SizedBox(height: size.height * 0.03),
+          AlreadyHaveAnAccountCheck(
+            press: () {
+              Navigator.of(context).pushNamed('/cadastra', arguments: {});
+              
             },
           )
         ],
