@@ -40,7 +40,10 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: 'Proximo passo',
-              press: () {},
+              press: () {
+                Navigator.of(context)
+                        .pushNamed('/denunciar', arguments: {});
+              },
             )
           ],
         ),

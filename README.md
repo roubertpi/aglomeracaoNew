@@ -18,9 +18,9 @@ samples, guidance on mobile development, and a full API reference.
 organizar o body e backgroud
 
 
-- Procurar Imagens para trocar o Login e o cadastro 
-- trocar as cores 
-- Começar integra com Api 
-- Fazer a tela de Balanço 
-- Botão de Denúncia 
+
+- Criar Tela de denúncia realizada 02/05
+- Criar Tela de minhas Denúncias  02/05
+
+
 
