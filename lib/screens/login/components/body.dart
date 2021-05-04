@@ -4,7 +4,6 @@ import 'package:aglomeracao/components/RoundedPasswordField%20.dart';
 import 'package:aglomeracao/components/rounded_button.dart';
 import 'package:aglomeracao/constants.dart';
 import 'package:aglomeracao/model/login_model.dart';
-import 'package:aglomeracao/screens/signup/signup_screen.dart';
 import 'package:aglomeracao/components/already_have_an_account_acheck.dart';
 import 'package:aglomeracao/screens/welcome/components/background.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +21,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
   LoginRequestModel loginRequestModel;
+
   @override
   void initState() {
     super.initState();

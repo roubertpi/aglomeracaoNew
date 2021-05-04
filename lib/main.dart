@@ -1,4 +1,3 @@
-import 'package:aglomeracao/screens/minhas_denuncias/minhas%20_denuncias.dart';
 import 'package:flutter/material.dart';
 
 import './screens/home_page/home_page_screen.dart';
@@ -9,6 +8,7 @@ import './screens/denuncia_realizada/denuncia_realizada.dart';
 import './screens/sobre/sobre_screen.dart';
 import './screens/Introducao/introducao_screen.dart';
 import './screens/denuncia/denunciar_screen.dart';
+import 'screens/minhas_denuncias/minhas _denuncias.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       //falta aqui
 
       routes: {
-        '/': (ctx) => MinhasDenuncias(),
+        '/': (ctx) => DenunciarScreen(),
         '/minhasdenuncias': (ctx) => DenunciaRealizada(),
         '/denunciar': (ctx) => DenunciarScreen(),
         '/sobre': (ctx) => SobreScreen(),
