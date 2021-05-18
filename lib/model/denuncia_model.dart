@@ -1,50 +1,23 @@
-class DenunciarResponseModel {
-  final String token;
-  final String error;
+import 'package:aglomeracao/model/login_model.dart';
 
-  DenunciarResponseModel({this.error, this.token});
-  factory DenunciarResponseModel.fromJson(Map<String, dynamic> json) {
-    return DenunciarResponseModel(
-        token: json["token"] != null ? json["token"] : "",
-        error: json["error"] != null ? json["erro"] : "");
-  }
-}
-
-class DenunciaModel {
-  StartLocation startLocation;
-
-  DenunciaModel({this.startLocation});
-
-  DenunciaModel.fromJson(Map<String, dynamic> json) {
-    startLocation = json['startLocation'] != null
-        ? new StartLocation.fromJson(json['startLocation'])
-        : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.startLocation != null) {
-      data['startLocation'] = this.startLocation.toJson();
-    }
-    return data;
-  }
-}
-
-class StartLocation {
-  String type;
+class DenunciaResponseModel {
   List<double> coordinates;
 
-  StartLocation({this.type, this.coordinates});
+  DenunciaResponseModel({this.coordinates});
 
-  StartLocation.fromJson(Map<String, dynamic> json) {
-    type = json['type'];
-    coordinates = json['coordinates'].cast<double>();
+  DenunciaResponseModel.fromJson(Map<String, dynamic> json) {
+    coordinates = json['coordinates'].cast<double>();  
   }
+}
 
+class DenunciaRequest {
+  List<double> cordenadas;
+
+  DenunciaRequest({this.cordenadas});
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
-    data['coordinates'] = this.coordinates;
-    return data;
+    Map<String, dynamic> map = {
+      'coordinates': cordenadas,
+    };
+    return map;
   }
 }

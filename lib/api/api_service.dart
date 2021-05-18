@@ -1,9 +1,9 @@
-import 'package:aglomeracao/model/cadastrar_model.dart';
-import 'package:aglomeracao/model/denuncia_model.dart';
-
-import '../model/login_model.dart';
+import '../model/denuncia_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import '../model/login_model.dart';
+import '../model/cadastrar_model.dart';
 
 class ApiService {
   //
@@ -34,13 +34,20 @@ class ApiService {
   }
 
   //
-  Future<DenunciarResponseModel> denunciar(DenunciaModel resquestModel) async {
+  Future<DenunciaResponseModel> denunciar(DenunciaRequest requestModel) async {
     var url = Uri.parse('http://192.168.100.9:3000/api/v1/users/denuncia');
-    final response = await http.post(url, body: resquestModel.toJson());
-    if (response.statusCode == 201 || response.statusCode == 401) {
-      return DenunciarResponseModel.fromJson(jsonDecode(response.body));
+    try {
+      final response = await http.post(url, body: json.encode(requestModel.toJson()));
+      if (response.statusCode == 201 || response.statusCode == 400) {
+      return DenunciaResponseModel.fromJson(
+        jsonDecode(response.body),
+      );
     } else {
-      throw Exception("Erro ao carregar Dados");
+      throw Exception("Error ao carregar Dados +++ ${response.statusCode}");
+    }
+      
+    } catch (e) {
+      print(e);
     }
   }
 }

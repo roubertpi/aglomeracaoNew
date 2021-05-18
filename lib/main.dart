@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       //falta aqui
 
       routes: {
-        '/': (ctx) => DenunciarScreen(),
+        '/': (ctx) => IntroducaoScreen(),
         '/minhasdenuncias': (ctx) => DenunciaRealizada(),
         '/denunciar': (ctx) => DenunciarScreen(),
         '/sobre': (ctx) => SobreScreen(),
