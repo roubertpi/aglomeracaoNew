@@ -12,12 +12,14 @@ class RoundedInpuntField extends StatelessWidget {
     this.hintText,
     this.icon = Icons.person,
     this.onChanged,
+    
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
         child: TextField(
             onChanged: onChanged,
+            
             cursorColor: kPrimaryColor,
             decoration: InputDecoration(
               icon: Icon(
