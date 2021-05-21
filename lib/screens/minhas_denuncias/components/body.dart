@@ -25,7 +25,7 @@ class Body extends StatelessWidget {
                     color: Colors.white,
                   ),
                   Text(
-                    'Balanço',
+                    'Minhas\nDenúncias',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         fontSize: 34,
@@ -38,12 +38,8 @@ class Body extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      widgetvacina(
-                        1234,
-                        '1º dose',
-                      ),
-                      widgetvacina(43433, '2º dose'),
-                      widgetvacina(2323, 'Total'),
+                      
+                      
                     ],
                   ),
                 ],
@@ -73,28 +69,5 @@ class Body extends StatelessWidget {
     );
   }
 
-  Container widgetvacina(double quatidade, String dose) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Text(
-              quatidade.toString(),
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            Text(dose)
-          ],
-        ),
-      ),
-      height: 95,
-      width: 95,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: kPrimaryLightColor),
-    );
-  }
+ 
 }

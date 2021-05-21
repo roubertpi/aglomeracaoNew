@@ -33,24 +33,34 @@ class Body extends StatelessWidget {
                       color: Colors.white),
                 ),
                 SizedBox(height: 130),
-                Container(
-                  height: 100,
-                  width: 280,
-                  decoration: BoxDecoration(
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed('/introducao', arguments: {});
+                  },
+                  child: Container(
+                    height: 100,
+                    width: 280,
+                    decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: kPrimaryColor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      
-                      Text(
-                        'Denuciar',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 32,
-                            color: Colors.white),
-                      )
-                    ],
+                      color: kPrimaryColor,
+                      boxShadow: [
+                        BoxShadow(
+                           )
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Denuciar',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 32,
+                              color: Colors.white),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -59,23 +69,8 @@ class Body extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.red,
-                      ),
-                    ),
-                     
-                    Container(
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.red,
-                      ),
-                    ),
+                    minhasDenunciasItem('Minhas\ndenúncias'),
+                    minhasDenunciasItem('Locais\nde vacina'),
                   ],
                 ),
                 SizedBox(
@@ -83,7 +78,7 @@ class Body extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.topLeft,
-                  padding: EdgeInsets.symmetric(horizontal:15),
+                  padding: EdgeInsets.symmetric(horizontal: 15),
                   child: Text(
                     'Locais com \nmais denúncias',
                     style: TextStyle(
@@ -101,6 +96,33 @@ class Body extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Container minhasDenunciasItem(String title) {
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(height: 60),
+          Text(
+            title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            textAlign: TextAlign.center,
+          )
+        ],
+      ),
+      height: 120,
+      width: 120,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: kPrimaryLightColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 20,
+              spreadRadius: 1,
+            )
+          ]),
     );
   }
 }

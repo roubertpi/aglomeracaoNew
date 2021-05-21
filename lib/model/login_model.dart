@@ -4,12 +4,16 @@ class LoginResponseModel {
 
   LoginResponseModel({this.token, this.error});
 
-  static Future<LoginResponseModel> fromJson(decode) {}
+  factory LoginResponseModel.fromJson(Map<String, dynamic> json) {
+    return LoginResponseModel(
+        token: json["token"] != null ? json["token"] : "",
+        error: json["error"] != null ? json["erro"] : "");
+  }
 }
 
 class LoginRequestModel {
-  final String email;
-  final String password;
+  String email;
+  String password;
   LoginRequestModel({this.email, this.password});
 
   Map<String, dynamic> toJson() {

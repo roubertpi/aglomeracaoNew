@@ -7,67 +7,47 @@ class TopForWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Card(
-              color: Colors.transparent,
-              child: Container(
-                height: 60,
-                width: 130,
-                decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text("São Cristovão"),
-                ),
-              ),
-            ),
-            Card(
-              color: Colors.transparent,
-              child: Container(
-                height: 60,
-                width: 130,
-                decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text("São Cristovão"),
-                ),
-              ),
-            ),
-          ],
+        SizedBox(
+          height: 10,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Card(
-              color: Colors.transparent,
-              child: Container(
-                height: 60,
-                width: 130,
-                decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text("São Cristovão"),
-                ),
-              ),
-            ),
-            Card(
-              color: Colors.transparent,
-              child: Container(
-                height: 60,
-                width: 130,
-                decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Center(
-                  child: Text("São Cristovão"),
-                ),
-              ),
-            ),
+            topForItem('Jardim America'),
+            topForItem('Calhau'),
+          ],
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            topForItem('Turu'),
+            topForItem('São Cristovão'),
           ],
         ),
       ],
+    );
+  }
+
+  Container topForItem(String local) {
+    return Container(
+      height: 60,
+      width: 130,
+      decoration: BoxDecoration(
+          color: kPrimaryLightColor,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(color: Colors.black12, blurRadius: 20, spreadRadius: 1)
+          ]),
+      child: Center(
+        child: Text(
+          local,
+          style: TextStyle(
+              color: kPrimaryColor, fontWeight: FontWeight.w600, fontSize: 16),
+        ),
+      ),
     );
   }
 }

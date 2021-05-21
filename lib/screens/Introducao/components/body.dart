@@ -1,5 +1,6 @@
 import 'package:aglomeracao/components/rounded_button.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
 import 'background.dart';
 
@@ -40,11 +41,26 @@ class Body extends StatelessWidget {
             ),
             RoundedButton(
               text: 'Proximo passo',
-              press: () {},
+              press: () async {
+                var minhalocation = await _getCurrentLocation();
+                var lat = minhalocation[0];
+                var log = minhalocation[1];
+                print(minhalocation);
+                Navigator.of(context)
+                    .pushNamed('/denunciar', arguments: {'lat': lat, 'log':log});
+              },
             )
           ],
         ),
       ),
     );
+  }
+
+  Future<List<double>> _getCurrentLocation() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    print(position);
+    List<double> minhalocalizacao = [position.latitude, position.longitude];
+    return minhalocalizacao;
   }
 }

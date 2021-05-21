@@ -1,16 +1,14 @@
+import 'package:flutter/material.dart';
 
-import 'package:aglomeracao/screens/Introducao/introducao_screen.dart';
-import 'package:aglomeracao/screens/sobre/sobre_screen.dart';
-
-import 'home_page.dart';
 import './screens/home_page/home_page_screen.dart';
 import './screens/login/login_screen.dart';
 import './screens/signup/signup_screen.dart';
-import 'package:flutter/material.dart';
 import './screens/balanco/balanco_screen.dart';
-
-
-
+import './screens/denuncia_realizada/denuncia_realizada.dart';
+import './screens/sobre/sobre_screen.dart';
+import './screens/Introducao/introducao_screen.dart';
+import './screens/denuncia/denunciar_screen.dart';
+import 'screens/minhas_denuncias/minhas _denuncias.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,16 +19,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       initialRoute: '/',
-        //falta aqui
-      
+      //falta aqui
+
       routes: {
-        '/' :(ctx)=>BalancoScreen(),
-        '/sobre' :(ctx)=>SobreScreen(),
-        '/introducao' :(ctx)=>IntroducaoScreen(),
-        '/balanco' :(ctx)=>BalancoScreen(),
-        '/login':(ctx)=> LoginScreen(),
-        '/cadastra': (ctx)=> SignUpScreen(),
-        '/homepage': (ctx)=> HomePageScreen(),
+        '/': (ctx) => IntroducaoScreen(),
+        '/minhasdenuncias': (ctx) => DenunciaRealizada(),
+        '/denunciar': (ctx) => DenunciarScreen(),
+        '/sobre': (ctx) => SobreScreen(),
+        '/introducao': (ctx) => IntroducaoScreen(),
+        '/balanco': (ctx) => BalancoScreen(),
+        '/login': (ctx) => LoginScreen(),
+        '/cadastra': (ctx) => SignUpScreen(),
+        '/homepage': (ctx) => HomePageScreen(),
       },
     );
   }
