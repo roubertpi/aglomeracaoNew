@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 350,
+              height: 450,
             ),
             Text(
               'Denúncia realizada',

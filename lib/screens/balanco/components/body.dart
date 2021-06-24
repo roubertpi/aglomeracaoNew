@@ -1,5 +1,4 @@
 import 'package:aglomeracao/constants.dart';
-import 'package:aglomeracao/screens/balanco/components/vacinas_widget.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {

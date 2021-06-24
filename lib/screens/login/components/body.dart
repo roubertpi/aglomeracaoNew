@@ -1,13 +1,14 @@
-import 'package:aglomeracao/api/api_service.dart';
+import 'package:flutter/material.dart';
+
+import 'package:aglomeracao/api/auth.dart';
 import 'package:aglomeracao/components/RoundedInpuntField.dart';
 import 'package:aglomeracao/components/RoundedPasswordField%20.dart';
 import 'package:aglomeracao/components/rounded_button.dart';
 import 'package:aglomeracao/constants.dart';
 import 'package:aglomeracao/model/login_model.dart';
 import 'package:aglomeracao/components/already_have_an_account_acheck.dart';
-import 'package:aglomeracao/screens/welcome/components/background.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:aglomeracao/components/backgroud_virus.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   const Body({
@@ -21,6 +22,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   GlobalKey<FormState> globalFormKey = GlobalKey<FormState>();
   LoginRequestModel loginRequestModel;
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -41,10 +43,14 @@ class _BodyState extends State<Body> {
             style: TextStyle(fontWeight: FontWeight.bold, color: kPrimaryColor),
           ),
           SizedBox(height: size.height * 0.03),
-          SvgPicture.asset(
-            "assets/icons/login.svg",
-            height: size.height * 0.35,
+          Text(
+            'Login',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: kPrimaryColor,
+                fontSize: 28),
           ),
+
           //* imagem
           //
           SizedBox(
@@ -59,18 +65,10 @@ class _BodyState extends State<Body> {
           ),
           RoundedButton(
             text: "Login",
-            press: () {
-              ApiService apiService = new ApiService();
-              apiService.login(loginRequestModel).then((value) {
-                if (value != null) {
-                  print('value');
-                  if (value.token.isNotEmpty) {
-                    Navigator.of(context).pushNamed('/homepage', arguments: {});
-                  } else {
-                    print('erro');
-                  }
-                }
-              });
+            press: () async {
+              await Provider.of<Auth>(context, listen: false)
+                  .login(loginRequestModel);
+              _isLoading = true;
 
               // Navigator.of(context).pushNamed('/homepage', arguments: {});
             },
@@ -79,7 +77,6 @@ class _BodyState extends State<Body> {
           AlreadyHaveAnAccountCheck(
             press: () {
               Navigator.of(context).pushNamed('/cadastra', arguments: {});
-              
             },
           )
         ],

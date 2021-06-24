@@ -17,11 +17,15 @@
     - limpar todas as classes duplicadas de diminuir o numeros de pastas 
  ## -Terça-Feira- Voltar escrever o TCC
 
-## -Quarta- Estudar serialization json flutter
-- Tentando já implementar a função 
+## -Quarta-
 
-## -Quinta-  Arrumar Tela de Balanço
+Criar Tela de Denúcia Realizada 
 
-## -Sexta- Arrumar Tela de Vacinas 
+30 - Arrumar os requistos 
+
+Cadastrar lugares de Vacina 
+
+Buscar Vacinas 
+
 
  
