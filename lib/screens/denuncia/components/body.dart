@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 
-import 'package:aglomeracao/api/api_service.dart';
+import 'package:aglomeracao/api/api_denuncia.dart';
 import 'package:aglomeracao/components/rounded_button.dart';
 import 'package:aglomeracao/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:provider/provider.dart';
 import '../../../model/denuncia_model.dart';
 
 class Body extends StatefulWidget {
@@ -62,10 +62,16 @@ class _BodyState extends State<Body> {
         ),
         RoundedButton(
           text: "Denunciar",
-          press: () {
+          press: () async {
             denunciaRequest.cordenadas = startLocation;
-            ApiService apiService = new ApiService();
-            apiService.denunciar(denunciaRequest);
+            try {
+              await Provider.of<ApiDenuncia>(context, listen: false)
+                  .denunciar(denunciaRequest);
+                            Navigator.of(context).pushNamed('/minhasdenuncias');
+
+            } catch (erro) {
+              throw erro;
+            }
           },
         )
       ],

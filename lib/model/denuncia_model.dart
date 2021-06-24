@@ -1,5 +1,3 @@
-import 'package:aglomeracao/model/login_model.dart';
-
 class DenunciaResponseModel {
   List<double> coordinates;
 

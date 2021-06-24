@@ -1,7 +1,7 @@
 import 'package:aglomeracao/constants.dart';
-import 'background.dart';
 import 'top4_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:aglomeracao/components/backgroud.dart';
 
 class Body extends StatelessWidget {
   final List<String> lugares = [
@@ -44,10 +44,7 @@ class Body extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: kPrimaryColor,
-                      boxShadow: [
-                        BoxShadow(
-                           )
-                      ],
+                      boxShadow: [BoxShadow()],
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -69,8 +66,12 @@ class Body extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    minhasDenunciasItem('Minhas\ndenúncias'),
-                    minhasDenunciasItem('Locais\nde vacina'),
+                    GestureDetector(child: (minhasDenunciasItem('Minhas\ndenúncias'))),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed('/balanco');
+                        },
+                        child: minhasDenunciasItem('Locais\nde vacina')),
                   ],
                 ),
                 SizedBox(

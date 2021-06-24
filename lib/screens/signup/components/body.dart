@@ -1,4 +1,4 @@
-import 'package:aglomeracao/api/api_service.dart';
+import 'package:aglomeracao/api/api_denuncia.dart';
 import 'package:aglomeracao/components/roundedInpuntField.dart';
 import 'package:aglomeracao/components/roundedPasswordField%20.dart';
 import 'package:aglomeracao/components/rounded_button.dart';
@@ -75,17 +75,7 @@ class _BodyState extends State<Body> {
                 print(cadastrarRequestModel.nome);
                 print(cadastrarRequestModel.senha);
                 print(cadastrarRequestModel.confirmaSenha);
-                ApiService apiService = new ApiService();
-                apiService.cadastrar(cadastrarRequestModel).then((value) {
-                  if (value != null) {
-                    print(value);
-                    if (value.token.isNotEmpty) {
-                      Navigator.of(context).pushNamed('/login', arguments: {});
-                    } else {
-                      print('error');
-                    }
-                  }
-                });
+                
               },
             ),
             SizedBox(height: size.height * 0.03),
